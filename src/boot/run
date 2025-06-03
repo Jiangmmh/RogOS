@@ -1,0 +1,4 @@
+nasm  -o boot/mbr.bin boot/mbr.S -I boot/include/
+nasm  -o boot/loader.bin boot/loader.S -I boot/include/
+dd if=boot/mbr.bin of=../bochs/hd60M.img bs=512 count=1 conv=notrunc
+dd if=boot/loader.bin of=../bochs/hd60M.img bs=512 count=3 seek=2 conv=notrunc
